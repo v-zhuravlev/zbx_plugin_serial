@@ -2,6 +2,49 @@
 
 This plugin for zabbix-agent2 is for getting data from the serial port.
 
+## Build
+
+Make sure golang is installed and properly configured.
+
+Checkout zabbix branch with zabbix-agent2:  
+`git clone https://git.zabbix.com/scm/zbx/zabbix.git -b feature/DEV-1100-4.3 --depth 1 zabbix-agent2`  
+`cd zabbix-agent2`  
+Checkout this plugin repo:  
+`git clone https://github.com/v-zhuravlev/zbx_plugin_serial.git go/src/zabbix/plugin/serial`  
+
+Edit file `go/src/zabbix/plugins/plugins.go` by appending `_ "zabbix/plugins/serial"`:
+
+```go
+package plugins
+
+import (
+	_ "zabbix/plugins/kernel"
+	_ "zabbix/plugins/log"
+	_ "zabbix/plugins/net/netif"
+	_ "zabbix/plugins/proc"
+	_ "zabbix/plugins/system/cpucollector"
+	_ "zabbix/plugins/system/uname"
+	_ "zabbix/plugins/system/uptime"
+	_ "zabbix/plugins/systemd"
+	_ "zabbix/plugins/systemrun"
+	_ "zabbix/plugins/vfs/dev"
+	_ "zabbix/plugins/vfs/file"
+	_ "zabbix/plugins/zabbix/async"
+	_ "zabbix/plugins/zabbix/stats"
+	_ "zabbix/plugins/zabbix/sync"
+	_ "zabbix/plugins/serial"
+)
+```
+
+`./bootstrap.sh`  
+`./configure --enable-agent2`  
+`make`  
+
+You will then find new agent with plugin included in go/src/zabbix/cmd dir
+
+Test it by running
+`zabbix-agent2 -t agent.ping`
+
 ## Install
 
 Run 
@@ -55,6 +98,13 @@ Example keys:
     serial.get["/dev/ttyS0 9600 N 8 2",10,"6f",float]
     serial.get["/dev/pts/2 9600 N 8 2",5,1b02081b03,uint32,LE]
 ```
+
+## Next steps
+
+- Add resource locking, make sure single serial port is not accessed simuletaneusly
+- Make read timeout configurable
+- Add new item, that will implement Watcher pattern
+- More tests coverage
 
 ## Changelog
 
