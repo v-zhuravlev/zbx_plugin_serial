@@ -106,6 +106,18 @@ Example keys:
 - Add new item, that will implement Watcher pattern
 - More tests coverage
 
+## Examples
+
+```text
+zabbix_get -s localhost -k serial.get["/dev/ttyr00",5,1b02081b03,uint32,LE]
+31832326
+```
+
+```text
+zabbix_get -s localhost -k serial.get["/dev/ttyr00",0,1b02081b03,raw]
+1B0600000841B9E5011B03
+```
+
 ## Changelog
 
 v0.1
