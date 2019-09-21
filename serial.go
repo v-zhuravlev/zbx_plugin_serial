@@ -131,6 +131,8 @@ func getSerial(config config) (response string, err error) {
 		return "", fmt.Errorf("Failed to open the port %s %d %v %v %v", c.Name, c.Baud, string(c.Parity), c.Size, c.StopBits)
 	}
 
+	defer s.Close()
+
 	// fromTo, err := getBytesToRead(config.ByteToRead)
 	// if err != nil {
 	// 	return "", err
