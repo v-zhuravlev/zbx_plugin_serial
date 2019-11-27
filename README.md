@@ -10,9 +10,9 @@ Checkout zabbix branch with zabbix-agent2:
 `git clone https://git.zabbix.com/scm/zbx/zabbix.git --depth 1 zabbix-agent2`  
 `cd zabbix-agent2`  
 Checkout this plugin repo:  
-`git clone https://github.com/v-zhuravlev/zbx_plugin_serial.git src/go/plugin/serial`  
+`git clone https://github.com/v-zhuravlev/zbx_plugin_serial.git src/go/plugins/serial`  
 
-Edit file `src/go/plugins/plugins.go` by appending `_ "zabbix/plugins/serial"`:
+Edit file `src/go/plugins/plugins.go` by appending `_ "zabbix.com/plugins/serial"`:
 
 ```go
 package plugins
