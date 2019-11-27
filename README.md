@@ -40,7 +40,7 @@ import (
 `./configure --enable-agent2`  
 `make`  
 
-You will then find new agent with plugin included in go/src/zabbix/cmd dir
+You will then find new agent with plugin included in src/go/bin dir
 
 Test it by running
 `zabbix-agent2 -t agent.ping`
