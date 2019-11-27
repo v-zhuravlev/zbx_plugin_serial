@@ -28,6 +28,10 @@ import (
 ```
 
 `./bootstrap.sh`  
+`pushd .`
+`cd src/go/plugins/serial`
+`go mod vendor`
+`popd`
 `./configure --enable-agent2`  
 `make`  
 
