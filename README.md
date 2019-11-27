@@ -10,29 +10,20 @@ Checkout zabbix branch with zabbix-agent2:
 `git clone https://git.zabbix.com/scm/zbx/zabbix.git --depth 1 zabbix-agent2`  
 `cd zabbix-agent2`  
 Checkout this plugin repo:  
-`git clone https://github.com/v-zhuravlev/zbx_plugin_serial.git go/src/zabbix/plugin/serial`  
+`git clone https://github.com/v-zhuravlev/zbx_plugin_serial.git src/go/plugin/serial`  
 
-Edit file `go/src/zabbix/plugins/plugins.go` by appending `_ "zabbix/plugins/serial"`:
+Edit file `src/go/plugins/plugins.go` by appending `_ "zabbix/plugins/serial"`:
 
 ```go
 package plugins
 
 import (
-	_ "zabbix/plugins/kernel"
-	_ "zabbix/plugins/log"
-	_ "zabbix/plugins/net/netif"
-	_ "zabbix/plugins/proc"
-	_ "zabbix/plugins/system/cpucollector"
-	_ "zabbix/plugins/system/uname"
-	_ "zabbix/plugins/system/uptime"
-	_ "zabbix/plugins/systemd"
-	_ "zabbix/plugins/systemrun"
-	_ "zabbix/plugins/vfs/dev"
-	_ "zabbix/plugins/vfs/file"
-	_ "zabbix/plugins/zabbix/async"
-	_ "zabbix/plugins/zabbix/stats"
-	_ "zabbix/plugins/zabbix/sync"
-	_ "zabbix/plugins/serial"
+	_ "zabbix.com/plugins/log"
+	_ "zabbix.com/plugins/systemrun"
+	_ "zabbix.com/plugins/zabbix/async"
+	_ "zabbix.com/plugins/zabbix/stats"
+	_ "zabbix.com/plugins/zabbix/sync"
+	_ "zabbix.com/plugins/serial"
 )
 ```
 
