@@ -27,12 +27,12 @@ import (
 )
 ```
 
-`./bootstrap.sh`  
-`pushd .`
-`cd src/go/plugins/serial`
-`go mod vendor`
-`popd`
-`./configure --enable-agent2`  
+`./bootstrap.sh`   
+`pushd .`  
+`cd src/go/plugins/serial`  
+`go mod vendor`  
+`popd`  
+`./configure --enable-agent2`   
 `make`  
 
 You will then find new agent with plugin included in src/go/bin dir
