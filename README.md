@@ -4,10 +4,10 @@ This plugin for zabbix-agent2 is for getting data from the serial port.
 
 ## Build
 
-Make sure golang is installed and properly configured.
+Make sure golang is [installed](https://golang.org/doc/install) and properly configured.
 
 Checkout zabbix branch with zabbix-agent2:  
-`git clone https://git.zabbix.com/scm/zbx/zabbix.git -b feature/DEV-1100-4.3 --depth 1 zabbix-agent2`  
+`git clone https://git.zabbix.com/scm/zbx/zabbix.git --depth 1 zabbix-agent2`  
 `cd zabbix-agent2`  
 Checkout this plugin repo:  
 `git clone https://github.com/v-zhuravlev/zbx_plugin_serial.git go/src/zabbix/plugin/serial`  
