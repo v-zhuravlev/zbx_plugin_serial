@@ -26,8 +26,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"zabbix/pkg/plugin"
-	"zabbix/pkg/std"
+	"zabbix.com/pkg/plugin"
+	"zabbix.com/pkg/std"
 
 	"github.com/tarm/serial"
 )
