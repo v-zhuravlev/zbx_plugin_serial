@@ -1,6 +1,6 @@
 # Serial zabbix agent plugin
 
-This plugin for zabbix-agent2 is for getting data from the serial port.
+This plugin for zabbix-agent2(exporter) is for getting data from the serial port.
 
 ## Build
 
@@ -10,7 +10,7 @@ Checkout zabbix branch with zabbix-agent2:
 `git clone https://git.zabbix.com/scm/zbx/zabbix.git --depth 1 zabbix-agent2`  
 `cd zabbix-agent2`  
 Checkout this plugin repo:  
-`git clone https://github.com/v-zhuravlev/zbx_plugin_serial.git src/go/plugins/serial`  
+`git submodule add https://github.com/v-zhuravlev/zbx_plugin_serial.git src/go/plugins/serial`  
 
 Edit file `src/go/plugins/plugins.go` by appending `_ "zabbix.com/plugins/serial"`:
 
@@ -29,16 +29,16 @@ import (
 
 `./bootstrap.sh`   
 `pushd .`  
-`cd src/go/plugins/serial`  
+`cd src/go`  
 `go mod vendor`  
 `popd`  
 `./configure --enable-agent2`   
 `make`  
 
-You will then find new agent with plugin included in src/go/bin dir
+You will then find new agent with plugin included in `src/go/bin` dir
 
 Test it by running
-`zabbix-agent2 -t agent.ping`
+`./zabbix-agent2 -t agent.ping -c ../conf/zabbix_agent2.conf`
 
 ## Install
 
@@ -115,5 +115,6 @@ zabbix_get -s localhost -k serial.get["/dev/ttyr00",0,1b02081b03,raw]
 
 ## Changelog
 
-v0.1
+### v0.1
+
 Initial version
